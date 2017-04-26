@@ -12,7 +12,7 @@ host, email admin and password admin.
 
 5.Install
 
-6.Enter the admin control panel using the next url http://mysite.com/admin
+6.Enter the admin control panel using the menu in the sidebar.
 
 7.Login
 
