@@ -1,0 +1,19 @@
+#Version 1.0.4
+- Add rel="nofollow" to social icon profile
+
+#Version 1.0.5
+- Fixed minors bugs
+
+#Version 1.0.6
+- Add Controls to Youtube Player
+- Improve Top Genres Menu
+
+#Version 1.0.7
+- Fixed Error Debug (Security: Important Update)
+
+#Version 1.0.8
+- Fixed bug top Genres QUERY
+- Remove dead link on user profile (Dashboard)
+
+#Version 1.0.9
+- Bug empty name trendign page

@@ -1,0 +1,234 @@
+
+
+
+
+#jp_poster_0
+{
+  opacity: 0;
+  display: none;
+}
+#player
+{
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left:0;
+  background-color: #282828;
+  z-index: 99999;
+  border-top:1px solid rgba(0,0,0,1);
+  display: none;
+}
+#player ul.controls
+{
+  position: absolute;
+  left:0;
+  top:0;
+  display: block;
+  list-style: none;
+  padding:0px;
+  margin-top: 0px;
+  height: 50px;
+  padding-left: 10px;
+  line-height: 50px;
+  width: 150px;
+  color: rgba(255,255,255,.7);
+}
+#player ul.controls li,
+#player ul.controls li:active,
+#player ul.controls li:visited
+{
+  display: inline-block;
+  height: 50px;
+  width: 35px;
+  text-align: center;
+  font-size: 40px;
+  cursor: pointer;
+  line-height: 50px;
+  vertical-align: middle;
+  border:0px;
+
+}
+#player ul.controls li:first-child ,
+#player ul.controls li:last-child 
+{
+  
+  font-size: 25px;
+}
+#player ul.controls li:hover,
+#player ul.controls li:focus
+{
+  border:0px;
+   color: rgba(255,255,255,1);
+}
+#player .player
+{
+  position: relative;
+  height: 40px;
+  
+  padding-top: 5px;
+  width: 100%;
+  padding-left: 140px;
+  padding-right: 10px;
+}
+
+#player .player .info
+{
+  position: relative;
+  top:0;
+  left:0;
+
+ /* background-color: #333;
+  background: #272727 -webkit-linear-gradient(bottom, #1C1C1C 0%,#282828 100%) repeat-x;
+  border: 1px #000 solid;*/
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+}
+#player .player .info .cover
+{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 40px;
+  height: 40px;
+    object-fit: cover;
+    padding: 0px;
+      border-radius: 3px;
+}
+#player .player .info .cover img
+{
+   width: 40px;
+  height: 40px;
+-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+#player .player .info:hover .cover img
+{
+   box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+  border-radius: 50%;
+  -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+
+}
+
+#player .player .info .data
+{
+  position: relative;
+  height: 40px;
+  padding-left: 50px;
+  bottom: 0px;  
+  width: 100%;
+  
+  
+  font-size: 10px;
+  color: rgba(255,255,255,.7);
+  text-shadow: 0px 0px 3px rgba(0,0,0,.7);
+
+}
+
+#player .player .info .data .current-info
+{
+  color: rgba(255,255,255,.6);
+  position: absolute;
+  left: 50px;
+  top: 5px;
+}
+#player .player .info .data .current-info .artist
+{
+  color: rgba(255,255,255,.5);
+}
+#player .player .info .data .lyric
+{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+#player .player .info .data .current-info .track
+{
+  color: rgba(255,255,255,.7);
+}
+#player .player .info .data .current-time
+{
+  position: absolute;
+  left: 50px;
+  bottom: 5px;
+}
+#player .player .info .data .duration
+{
+   position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+#player .player .info .data .jp-progress
+{
+  width: 100%;
+  padding-left:40px;
+  padding-right:50px;
+  height: 40px;
+  padding-top: 26px;
+  background-color: #282828;
+ 
+}
+#player .player .info .data .jp-progress .progress-seek
+{
+  width: 100%;
+ 
+  height: 6px;
+  background-color: rgba(255,255,255,.1);
+  border-radius: 3px;
+
+    
+    cursor: pointer;
+  
+}
+#player .player .info .data .jp-progress .progress-seek .progress-current
+{
+  position: relative;
+  width: 0%;
+  top:0px;
+  left: 0px;
+  height: 100%;
+  border-radius: 3px;
+  background-color: #A8E00F;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+
+}
+#player .player .info .data .jp-progress .progress-seek .progress-handle
+{
+  position: relative;
+  width: 13px;
+  height: 13px;
+  background-color: #F8F8F8;
+  border-radius: 50%;
+  left: 0%;
+  bottom:9px;
+  margin-left: -7px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,.7);
+  display: none;
+}
+#player .player .info .data .jp-progress .progress-seek:hover .progress-handle
+{
+  display: block;
+}
