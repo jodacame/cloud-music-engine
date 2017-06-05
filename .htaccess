@@ -1,0 +1,101 @@
+Options -Indexes +FollowSymLinks
+AddDefaultCharset UTF-8
+RewriteEngine On
+RewriteBase /
+
+#RewriteCond %{HTTPS} off
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#Force www:
+#RewriteCond %{HTTP_HOST} !^$
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteCond %{HTTPS}s ^on(s)|
+#RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+
+
+# exclude any paths that are not codeigniter-app related
+RewriteCond %{REQUEST_URI} !^/server-status
+RewriteCond %{REQUEST_URI} !^/server-info
+RewriteCond %{REQUEST_URI} !^/docs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+<IfModule mod_php5.c>
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+# the following is for rewritting under FastCGI
+<IfModule !mod_php5.c>
+RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+#PAGESPEED
+<IfModule mod_expires.c>
+  ExpiresActive on
+ 
+# Perhaps better to whitelist expires rules? Perhaps.
+  ExpiresDefault                          "access plus 1 month"
+ 
+# cache.appcache needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
+  ExpiresByType text/cache-manifest       "access plus 0 seconds"
+ 
+# your document html 
+  ExpiresByType text/html                 "access plus 0 seconds"
+ 
+# data
+  ExpiresByType text/xml                  "access plus 0 seconds"
+  ExpiresByType application/xml           "access plus 0 seconds"
+  ExpiresByType application/json          "access plus 0 seconds"
+ 
+# rss feed
+  ExpiresByType application/rss+xml       "access plus 1 hour"
+ 
+# favicon (cannot be renamed)
+  ExpiresByType image/x-icon              "access plus 1 month"
+ 
+# media: images, video, audio
+  ExpiresByType image/gif                 "access plus 3 months"
+  ExpiresByType image/png                 "access plus 3 months"
+  ExpiresByType image/jpg                 "access plus 3 months"
+  ExpiresByType image/jpeg                "access plus 3 months"
+  ExpiresByType video/ogg                 "access plus 3 months"
+  ExpiresByType audio/ogg                 "access plus 3 months"
+  ExpiresByType video/mp4                 "access plus 3 months"
+  ExpiresByType video/webm                "access plus 3 months"
+ 
+# htc files  (css3pie)
+  ExpiresByType text/x-component          "access plus 1 month"
+ 
+# webfonts
+  ExpiresByType font/truetype             "access plus 1 month"
+  ExpiresByType font/opentype             "access plus 1 month"
+  ExpiresByType application/x-font-woff   "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+ 
+# css and javascript
+  ExpiresByType text/css                  "access plus 2 months"
+  ExpiresByType application/javascript    "access plus 2 months"
+  ExpiresByType text/javascript           "access plus 2 months"
+ 
+  <IfModule mod_headers.c>
+    Header append Cache-Control "public, no-transform"
+    Header set Connection keep-alive
+  </IfModule>
+ 
+</IfModule>
+
+<IfModule mod_deflate.c>
+        <IfModule mod_filter.c>
+                # these are known to be safe with MSIE 6
+                AddOutputFilterByType DEFLATE text/html text/plain text/xml
+
+                # everything else may cause problems with MSIE 6
+                AddOutputFilterByType DEFLATE text/css
+                AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/ecmascript
+                AddOutputFilterByType DEFLATE application/rss+xml
+                AddOutputFilterByType DEFLATE application/xml
+        </IfModule>
+</IfModule>
+
+#END PAGESPEED
